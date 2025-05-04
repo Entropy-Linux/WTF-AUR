@@ -1,0 +1,15 @@
+# Maintainer: Szmelc.INC <dev@szmelc.com>
+pkgname=wallpicsum
+pkgver=1.0
+pkgrel=1
+pkgdesc="Ultimate default wallpaper downloader from picsum.photos with user-aware permissions"
+arch=('any')
+url="https://github.com/Entropy-Linux/WTF-AUR"
+license=('WTFPL')
+depends=('bash' 'curl' 'coreutils' 'sudo')
+source=("wallpicsum.sh")
+sha256sums=('SKIP')
+
+package() {
+  install -Dm755 "$srcdir/wallpicsum.sh" "$pkgdir/usr/bin/wallpicsum"
+}
