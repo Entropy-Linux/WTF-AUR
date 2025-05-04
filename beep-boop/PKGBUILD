@@ -1,0 +1,22 @@
+# Maintainer: Szmelc.INC <dev@szmelc.com>
+pkgname=beep-boop
+pkgver=1.0
+pkgrel=1
+pkgdesc="A package to beep and boop"
+arch=('any')
+url="https://github.com/serainox420/Beep-Boop"
+license=('WTFPL')
+depends=('bash')
+source=("$pkgname::git+https://github.com/serainox420/Beep-Boop.git")
+sha256sums=('SKIP')
+
+package() {
+  cd "$srcdir/$pkgname"
+
+  # Install scripts
+  install -Dm755 beepboop "$pkgdir/usr/bin/beepboop"
+
+  # Install full beep folder
+  install -d "$pkgdir/usr/share/beep-boop/beep"
+  cp -a beep/* "$pkgdir/usr/share/beep-boop/beep/"
+}
