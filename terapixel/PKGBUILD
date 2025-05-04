@@ -1,0 +1,16 @@
+pkgname=terapixel
+pkgver=1.0
+pkgrel=1
+pkgdesc="Deferred build of 1 terapixel image from 10k.png using vips"
+arch=('any')
+url="https://szmelc.com/"
+license=('custom')
+depends=('libvips')
+install=terapixel-image.install
+source=("grow.sh" "10k.png")
+sha256sums=('SKIP' 'SKIP')
+
+package() {
+  install -Dm755 "$srcdir/grow.sh" "$pkgdir/usr/share/terapixel-image/grow.sh"
+  install -Dm644 "$srcdir/10k.png" "$pkgdir/usr/share/terapixel-image/10k.png"
+}
