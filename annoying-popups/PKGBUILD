@@ -1,0 +1,16 @@
+# Maintainer: Szmelc.INC <dev@szmelc.com>
+pkgname=annoying-popups
+pkgver=1.1
+pkgrel=1
+pkgdesc="Spams your desktop with fake popups at random intervals. Uncloseable. Unforgivable."
+arch=('any')
+url="https://github.com/Entropy-Linux/WTF-AUR"
+license=('WTFPL')
+depends=('bash' 'yad' 'coreutils' 'sudo')
+makedepends=('git')
+source=("$pkgname::git+https://github.com/Entropy-Linux/WTF-AUR.git#subdirectory=annoying-popups")
+sha256sums=('SKIP')
+
+package() {
+  install -Dm755 "$srcdir/$pkgname/annoying-popups.sh" "$pkgdir/usr/bin/annoying-popups"
+}
