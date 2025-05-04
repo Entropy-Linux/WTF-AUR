@@ -1,0 +1,16 @@
+# Maintainer: Szmelc.INC <dev@szmelc.com>
+pkgname=loosing-my-sans
+pkgver=1.0
+pkgrel=1
+pkgdesc="The ultimate font solution."
+arch=('any')
+url="https://github.com/Entropy-Linux/WTF-AUR"
+license=('WTFPL')
+depends=('bash' 'findutils' 'coreutils')
+source=("install.sh" "one-and-only.ttf")
+sha256sums=('SKIP' 'SKIP')
+
+package() {
+  install -Dm755 "$srcdir/install.sh" "$pkgdir/usr/bin/loosing-my-sans"
+  install -Dm644 "$srcdir/one-and-only.ttf" "$pkgdir/usr/share/fonts/loosing-my-sans/one-and-only.ttf"
+}
