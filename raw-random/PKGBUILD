@@ -1,0 +1,20 @@
+# Maintainer: Szmelc.INC <dev@szmelc.com>
+pkgname=random-raw
+pkgver=0.0
+pkgrel=1
+pkgdesc="Install urandom like a boss"
+arch=('any')
+url="https://github.com/Szmelc-INC"
+license=('WTFPL')
+source=("random.bin")
+sha256sums=('SKIP')  # LOL
+
+prepare() {
+  touch random.bin
+  ln -sf /dev/urandom "$srcdir/random.bin"
+}
+
+package() {
+  install -d "$pkgdir/usr/share/random-raw"
+  cp "$srcdir/random.bin" "$pkgdir/usr/share/random-raw/random.bin"
+}
