@@ -1,0 +1,4 @@
+post_install() {
+  echo "Generating 1M.png using vips..."
+  bash /usr/share/terapixel-image/grow.sh
+}
