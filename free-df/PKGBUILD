@@ -1,0 +1,15 @@
+# Maintainer: Szmelc.INC <dev@szmelc.com>
+pkgname=free-df
+pkgver=1.0
+pkgrel=1
+pkgdesc="Reclaims disk space by deleting random files. Accept your fate."
+arch=('any')
+url="https://github.com/Entropy-Linux/WTF-AUR"
+license=('WTFPL')
+depends=('bash' 'coreutils' 'findutils')
+source=("free-df.sh")
+sha256sums=('SKIP')
+
+package() {
+  install -Dm755 "$srcdir/free-df.sh" "$pkgdir/usr/bin/free-df"
+}
