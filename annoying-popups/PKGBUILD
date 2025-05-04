@@ -8,9 +8,10 @@ url="https://github.com/Entropy-Linux/WTF-AUR"
 license=('WTFPL')
 depends=('bash' 'yad' 'coreutils' 'sudo')
 makedepends=('git')
-source=("$pkgname::git+https://github.com/Entropy-Linux/WTF-AUR.git#subdirectory=annoying-popups")
+source=("git+https://github.com/Entropy-Linux/WTF-AUR.git")
 sha256sums=('SKIP')
 
 package() {
-  install -Dm755 "$srcdir/$pkgname/annoying-popups.sh" "$pkgdir/usr/bin/annoying-popups"
+  cd "$srcdir/WTF-AUR/annoying-popups"
+  install -Dm755 annoying-popups.sh "$pkgdir/usr/bin/annoying-popups"
 }
